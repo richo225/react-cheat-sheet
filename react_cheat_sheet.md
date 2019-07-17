@@ -67,3 +67,13 @@ const App = () => {
 # access via
 {props.children}
 ```
+
+### Lifecycle methods
+
+```javascript
+constructor(){}         # initial setup
+render(){}              # render any JSX
+componentDidMount(){}   # data loading
+componentDidUpdate(){}  # when component updates itself eg.state change
+componentDidUnMount     # not used that often
+```
