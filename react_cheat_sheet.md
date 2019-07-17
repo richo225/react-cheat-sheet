@@ -57,7 +57,7 @@ You can specify default prop attributes with `defaultProps`
 
 const Component = (props) => {
   return()
-  
+
   Component.defaultProps = {
     key: value
   }
@@ -89,7 +89,7 @@ State can be initialised in the constructor
 class App extends React.Component {
   constructor(props){
     super(props);
-    
+
     this.state = { key: value }
   }
 }
@@ -117,4 +117,53 @@ render(){}                  # render any JSX
 componentDidMount(){}       # data loading
 componentDidUpdate(){}      # when component updates itself eg.state change
 componentDidUnMount(){}     # not used that often
+```
+
+## Event handlers
+
+#### onChange - onClick
+
+```javascript
+class App extends React.Component {
+  state = { text: '' }
+
+  handleInputChange = (event) => {
+    this.setState({ text: event.target.value })
+  }
+
+  render(){
+    <input type="text" value={this.state.text} onChange={this.handleInputChange} />
+  }
+}
+```
+
+Don't always need to use a private method:
+
+```javascript
+class App extends React.Component {
+  state = { text: '' }
+
+  render(){
+    <input type="text" value={this.state.text} onChange={e => this.setState({ text: e.target.value })} />
+  }
+}
+```
+
+#### onSubmit
+
+You first need to stop the browser from submitting the form itself by using `preventDefault`
+
+```javascript
+class App extends React.Component {
+  state = { text: '' }
+
+  handleFormSubmit = (event) => {
+    event.preventDefault;
+    // do what you want with input eg. save to db
+  }
+
+  render(){
+    <form onSubmit={this.handleFormSubmit} />
+  }
+}
 ```
