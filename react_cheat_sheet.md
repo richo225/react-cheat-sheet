@@ -1,4 +1,4 @@
-### File setup
+## File setup
 
 ```javascript
 import React from 'react';
@@ -9,21 +9,23 @@ ReactDOM.render(<Component/>, document.getElementById('root'));
 export default Component;
 ```
 
-### Semantic UI
+## Semantic UI
 ```html
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q=" crossorigin="anonymous" />
 ```
 
-### Components
+## Components
 
-#### Functional
+### Functional
+Use just for rendering simple JSX
 ```javascript
 const Component = () => {
   return(JSX);
 }
 ```
 
-#### Class
+### Class
+Main way. Gives access to state and lifecycle methods
 ```javascript
 class App extends React.Component {
   constructor(props){
@@ -36,23 +38,34 @@ class App extends React.Component {
 }
 ```
 
-### State
-State is initialised in the constructor
-```javascript
-class App extends React.Component {
-  constructor(props){
-    super(props);
+## Props
 
-    this.state = { key: value }
+```javascript
+<Component key="value" />
+
+const Component = (props) => {
+  return(
+    {props.key}
+  )
+}
+```
+
+You can specify default prop attributes with `defaultProps`
+
+```javascript
+<Component />
+
+const Component = (props) => {
+  return()
+  
+  Component.defaultProps = {
+    key: value
   }
 }
 ```
-Changing state will re-render the component
-```javascript
-this.setState({ key: value })
-```
 
-### Children
+
+## Children
 
 ```javascript
 const App = () => {
@@ -68,12 +81,40 @@ const App = () => {
 {props.children}
 ```
 
-### Lifecycle methods
+## State
+
+State can be initialised in the constructor
 
 ```javascript
-constructor(){}         # initial setup
-render(){}              # render any JSX
-componentDidMount(){}   # data loading
-componentDidUpdate(){}  # when component updates itself eg.state change
-componentDidUnMount(){} # not used that often
+class App extends React.Component {
+  constructor(props){
+    super(props);
+    
+    this.state = { key: value }
+  }
+}
+```
+
+Most of the time you don't need the constructor and can declare it within the class
+
+```javascript
+class App extends React.Component {
+  state = { key: value }
+}
+```
+
+Changing state will re-render the component
+
+```javascript
+this.setState({ key: value })
+```
+
+## Lifecycle methods
+
+```javascript
+constructor(){}             # initial setup
+render(){}                  # render any JSX
+componentDidMount(){}       # data loading
+componentDidUpdate(){}      # when component updates itself eg.state change
+componentDidUnMount(){}     # not used that often
 ```
