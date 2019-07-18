@@ -167,3 +167,33 @@ class App extends React.Component {
   }
 }
 ```
+
+## Children to Parent callbacks
+
+`Parent => Child` Pass props to child
+
+`Child => Parent` Parent passes a callback method to the child. The child then calls this method.
+
+```javascript
+class Parent extends React.Component {
+  callbackMethod = () => {
+    // handle output from child
+  }
+
+  render(){
+    return(
+      <div>
+        <Child methodName={this.callbackMethod}>
+      </div>
+    )
+  }
+}
+
+class Child extends React.Component {
+  render(){
+    {this.props.methodName(
+      // pass what you want to parent
+    )}
+  }
+}
+```
