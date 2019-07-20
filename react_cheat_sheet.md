@@ -197,3 +197,57 @@ class Child extends React.Component {
   }
 }
 ```
+
+## Asynchronous requests
+
+```javascript
+makeRequest = () => {
+  axios.get(url, {
+    params: { .. },
+    headers: { .. }
+  }).then(response => {
+    // do something with response
+  });
+}
+```
+
+### await
+
+Simpler way is to use `async/await` for the method call
+
+```javascript
+makeRequest = async () => {
+  const response = await axios
+    .get(url, {
+      params: { .. },
+      headers: { .. }
+    });
+  // do something with response
+}
+```
+
+### custom client
+
+```javascript
+// /api/clientName.js
+import axios from 'axios'
+
+export default axios.create({
+  baseURL: ' ',
+  headers: { }
+});
+```
+
+Then import custom client and replace axios:
+
+```javascript
+import 'clientName' from '/api/clientName.js'
+
+makeRequest = async () => {
+  const response = await clientName
+    .get(relative_url, {
+      params: { .. }
+    });
+// do something with response
+}
+```
