@@ -193,9 +193,8 @@ class SearchBar extends React.Component {
     );
   };
 }
-```
-
 export default SearchBar;
+```
 
 ## Children to Parent callbacks
 
