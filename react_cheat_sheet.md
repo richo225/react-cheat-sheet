@@ -64,7 +64,6 @@ const Component = (props) => {
 }
 ```
 
-
 ## Children
 
 ```javascript
@@ -167,6 +166,36 @@ class App extends React.Component {
   }
 }
 ```
+
+### Form example
+
+```javascript
+class SearchBar extends React.Component {
+  state = { term: '' }
+
+  handleInputChange = (event) => {
+    this.setState({ term: event.target.value });
+  }
+
+  handleFormSubmit = (event) => {
+    event.preventDefault()
+    // do something with (this.state.term)
+  }
+
+  render () {
+    return(
+      <form className="ui form" onSubmit={this.handleFormSubmit}>
+        <input type="text"
+          placeholder="Search..."
+          value={this.state.term}
+          onChange={this.handleInputChange} />
+      </form>
+    );
+  };
+}
+```
+
+export default SearchBar;
 
 ## Children to Parent callbacks
 
