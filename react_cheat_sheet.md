@@ -282,8 +282,6 @@ makeRequest = async () => {
 
 ## Redux cycle
 
-Action is dispatched ie. a copy is sent to every reducer
-
 ![Screenshot 2019-09-25 at 19 07 38](https://user-images.githubusercontent.com/18379191/65771684-47bcae80-e128-11e9-893e-eaa997f83ff2.png)
 
 ![Redux cycle(1)](https://user-images.githubusercontent.com/18379191/65777207-1ac1c900-e133-11e9-93fe-dba7501d8ee9.png)
