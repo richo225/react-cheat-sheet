@@ -285,3 +285,35 @@ makeRequest = async () => {
 ![Screenshot 2019-09-25 at 19 07 38](https://user-images.githubusercontent.com/18379191/65771684-47bcae80-e128-11e9-893e-eaa997f83ff2.png)
 
 ![Redux cycle(1)](https://user-images.githubusercontent.com/18379191/65777207-1ac1c900-e133-11e9-93fe-dba7501d8ee9.png)
+
+## React-redux
+
+`~$ yarn add redux react-redux`
+
+![Screenshot 2019-10-01 at 16 39 12](https://user-images.githubusercontent.com/18379191/65978350-1531ef00-e463-11e9-834f-54e36f9acdee.png)
+
+### Provider
+
+The provider wraps the app and is passed a reference to the redux store
+
+The store is created via `createStore()` after combining your reducers with `combineReducers()`
+
+```javascript
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+
+const App = () => {
+  return(
+    <Provider store={createStore(reducers)} >
+      <App />
+    <Provider />
+  );
+};
+```
+
+### Connector
+
+- Any component that needs to interact with the redux store is wrapped in the connect tag
+- It communicates with the provider via the context system
+- The connect tag is configured by telling it which pieces of state we want and which action creators we want hooked up
+
