@@ -315,5 +315,24 @@ const App = () => {
 
 - Any component that needs to interact with the redux store is wrapped in the connect tag
 - It communicates with the provider via the context system
-- The connect tag is configured by telling it which pieces of state we want and which action creators we want hooked up
+- The connect tag is configured via `mapStateToProps()` by telling it which pieces of state we want and which action creators we want hooked up
+
+```javascript
+import React from 'react'
+import { connect } from 'react-redux';
+
+class ComponentName extends React.Component {
+  render () {
+    // this.props === { songs: state.songs } 
+    return( <div> blah </div> )
+  }
+}
+
+const mapStateToProps = (state) => {
+  // takes the state from the store and returns it as props to the component
+  return { songs: state.songs };
+};
+
+export default connect(mapStateToProps)(ComponentName);
+```
 
