@@ -356,19 +356,19 @@ import api from '../apis/api';
 
 export const fetchData = () => {
   // the action creator returns a function that is sent to redux-thunk
-  return function (dispatch, getState) => {
+  return async function (dispatch, getState) => {
     // async process
-    const response = api.get('/data');
+    const response = await api.get('/data');
 
     const action = {
       type: 'FETCH_DATA',
       payload: response
-    }
+    };
 
     // this is manually run within redux-thunk
     dispatch(action)
-  }
-}
+  };
+};
 ```
 
 The middleware is hooked up when you create the store using `applyMiddleware`
