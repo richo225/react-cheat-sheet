@@ -344,3 +344,46 @@ export default connect(
 )(ComponentName);
 ```
 
+### Redux Thunk
+
+- Asynchronous API calls etc. cannot be used in a normal action creator as they don't return the correct action object
+- Instead some middleware called `redux-thunk` is used which sits in between an action and the dispatch function. It is used for asynchronous action creators.
+- These asynchronous action creators can return functions instead of objects that are passed to redux-thunk. Redux-thunk then adds the `dispatch` and `getState` methods as arguments to this function. When the asyncronous process is later finished, the function can be called manually with these arguments.
+
+```javascript
+// Asynchronous action creator
+import api from '../apis/api';
+
+export const fetchData = () => {
+  // the action creator returns a function that is sent to redux-thunk
+  return function (dispatch, getState) => {
+    // async process
+    const response = api.get('/data');
+
+    const action = {
+      type: 'FETCH_DATA',
+      payload: response
+    }
+
+    // this is manually run within redux-thunk
+    dispatch(action)
+  }
+}
+```
+
+The middleware is hooked up when you create the store using `applyMiddleware`
+
+```javascript
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+
+const store = createStore(reducers, applyMiddleware);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+)
+```
+
