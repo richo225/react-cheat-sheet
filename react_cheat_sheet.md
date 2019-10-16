@@ -377,7 +377,7 @@ The middleware is hooked up when you create the store using `applyMiddleware`
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
-const store = createStore(reducers, applyMiddleware);
+const store = createStore(reducers, applyMiddleware(thunk);
 
 ReactDOM.render(
   <Provider store={store}>
