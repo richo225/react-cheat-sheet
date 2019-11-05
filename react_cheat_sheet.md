@@ -292,6 +292,37 @@ makeRequest = async () => {
 
 ![Screenshot 2019-10-01 at 16 39 12](https://user-images.githubusercontent.com/18379191/65978350-1531ef00-e463-11e9-834f-54e36f9acdee.png)
 
+### Combining reducers
+
+When first setting up the app, you can use mock values for reducers.
+
+```javascript
+import { combineReducers } from 'redux';
+
+export default combineReducers({
+  stub: () => 'stub'
+})
+```
+
+`combineReducers()` takes a hash of reducers and returns a reducer. The state is updated afterwards eg. from below with something like `{ posts: [post1, post2, post3] }`. You must always give a default state param as a reducer can't handle undefined.
+
+```javascript
+import { combineReducers } from 'redux';
+
+const postsReducer = (state = [], action) => {
+  switch(action.type){
+    case 'FETCH_POSTS':
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+export default combineReducers({
+  posts: postsReducer
+})
+```
+
 ### Provider
 
 The provider wraps the app and is passed a reference to the redux store
