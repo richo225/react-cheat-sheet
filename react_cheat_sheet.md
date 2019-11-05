@@ -332,6 +332,7 @@ The store is created via `createStore()` after combining your reducers with `com
 ```javascript
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import reducers from '../reducers';
 
 const App = () => {
   return(
@@ -346,7 +347,7 @@ const App = () => {
 
 - Any component that needs to interact with the redux store is wrapped in the connect tag
 - It communicates with the provider via the context system
-- `mapStateToProps()` configures the connector with which pieces of state we want
+- `mapStateToProps()` configures the connector with which pieces of state we want. This can be set to `null` when first configuring an app
 - Action creators are hooked up by passing them into `connect()`
 
 ```javascript
@@ -371,7 +372,7 @@ const mapStateToProps = (state) => {
 
 export default connect(
   mapStateToProps,
-  { actionCreator }
+  { actionCreator: actionCreator }
 )(ComponentName);
 ```
 
