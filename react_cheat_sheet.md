@@ -418,6 +418,8 @@ export const fetchData = () => async (dispatch) => {
 
 The middleware is hooked up when you create the store using `applyMiddleware`
 
+`~$ yarn add redux-thunk`
+
 ```javascript
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
@@ -432,3 +434,30 @@ ReactDOM.render(
 )
 ```
 
+## React router
+
+`~$ yarn add react-router-dom` 
+
+- The `<BrowserRouter />` blocks the server from redirecting a whole new HTML page and dumping any JS that's in memory.
+- It instead changes the URL and rerenders the react components declared in `<Route />`
+
+```javascript
+import { BrowserRouter, Route } from 'react-router-dom';
+
+class App extends React.Component {
+  render () {
+    return(
+      <div>
+        <BrowserRouter>
+          <Header/>
+          <Route path="/" exact component={StreamList} />
+          <Route path="/streams/new" component={StreamCreate} />
+          <Route path="/streams/show" component={StreamShow} />
+          <Route path="/streams/edit" component={StreamEdit} />
+          <Route path="/streams/delete" component={StreamDelete} />
+        </BrowserRouter>
+      </div>
+    )
+  }
+}
+```
