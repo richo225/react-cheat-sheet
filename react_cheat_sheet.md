@@ -403,6 +403,19 @@ export const fetchData = () => {
 };
 ```
 
+This can be refatored into:
+
+```javascript
+export const fetchData = () => async (dispatch) => {
+  const response = await api.get('/data');
+
+  dispatch({
+    type: 'FETCH_DATA',
+    payload: response
+  });
+};
+```
+
 The middleware is hooked up when you create the store using `applyMiddleware`
 
 ```javascript
