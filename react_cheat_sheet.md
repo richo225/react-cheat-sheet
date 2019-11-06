@@ -461,3 +461,42 @@ class App extends React.Component {
   }
 }
 ```
+
+## Authorization
+
+GAPI is Google’s client library for browser-side JavaScript
+
+`<script src="https://apis.google.com/js/api.js"></script>`
+
+```javascript
+import React from 'react';
+
+class GoogleAuth extends React.Component {
+  state = { isSignedIn: null };
+
+  componentDidMount(){
+    window.gapi.load('client:auth2', () => {
+      window.gapi.client.init({
+        clientId: '789689060467-5fcom3230maasmtp40uf7e3jju9m25qh.apps.googleusercontent.com',
+        scope: 'email'
+      }).then(() => {
+        this.auth = window.gapi.auth2.getAuthInstance();
+
+        this.auth.isSignedIn.listen(() => {
+          this.setState({ isSignedIn: this.auth.isSignedIn.get() })
+        })
+      });
+    });
+  }
+
+  render () {
+    return(
+      <div>
+        {this.state.isSignedIn ? 'Signed In' : 'Signed Out'}
+      </div>
+    )
+  }
+}
+
+export default GoogleAuth;
+```
