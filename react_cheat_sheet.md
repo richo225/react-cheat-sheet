@@ -500,3 +500,83 @@ class GoogleAuth extends React.Component {
 
 export default GoogleAuth;
 ```
+
+## Redux form
+
+`~$ yarn add redux-form`
+
+- Redux form handles everything on the redux side for your form fields. It has it's own reducer and handles mapStateToProps.
+- You need to hook up the reducer with the `form` key:
+
+```javascript
+import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
+
+export default combineReducers({
+  form: formReducer
+});
+```
+
+```javascript
+import React from 'react';
+import { Field, reduxForm } from 'redux-form';
+
+class StreamCreate extends React.Component {
+  renderInput = ({input, label, meta}) => {
+    return(
+      <div className="field">
+        <label>{label}</label>
+        <input {...input} />
+        {this.renderError(meta)}
+      </div>
+    )
+  }
+
+  renderError({ error, touched}) {
+    if(error && touched) {
+      return(
+        <div className="ui error message">
+          <div className="header">
+            {error}
+          </div>
+        </div>
+      )
+    }
+  }
+
+  onSubmit(formValues) {
+    console.log(formValues)
+    // Do whatever you want with the values. Probably POST to the server
+  }
+
+  render () {
+    return(
+      <form className="ui form error" onSubmit={this.props.handleSubmit(this.onSubmit)}>
+        <Field name="title" label="Title"component={this.renderInput}/>
+        <Field name="description" label="Description" component={this.renderInput}/>
+        <button className="ui button">Submit</button>
+      </form>
+    )
+  }
+}
+
+const validate = (formValues) => {
+  const errors = {};
+
+  if (!formValues.title){
+    errors.title = "Title is required";
+  }
+
+  if (!formValues.description){
+    errors.description = "Description is required";
+  }
+
+  return errors;
+}
+
+export default reduxForm({
+  form: 'createStream',
+  validate: validate
+})(StreamCreate);
+```
+
