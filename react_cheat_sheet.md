@@ -613,3 +613,5 @@ const Modal = (props) => {
 
 export default Modal;
 ```
+
+![Screenshot 2019-11-14 at 22 25 16](https://user-images.githubusercontent.com/18379191/68901347-ad431980-072d-11ea-867a-f63c8f4a58e0.png)
