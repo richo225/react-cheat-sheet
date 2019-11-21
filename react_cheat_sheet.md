@@ -657,13 +657,13 @@ export default App;
 
 #### Consuming data
 
+1. Using `this.context`
+
 You must first always set the class method of `contextType` to point to your context object
 
 ```javascript
 static contextType = MyContext;
 ```
-
-1. Using `this.context`
 
 ```javascript
 import React from 'react';
@@ -692,8 +692,6 @@ import React from 'react';
 import MyContext from '../contexts/MyContext';
 
 class Component extends React.Component {
-  static contextType = MyContext;
-
   render () {
     return(
       <div className="ui field">
