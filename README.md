@@ -1,9 +1,8 @@
-<h1 align="center">
-  ![header](https://user-images.githubusercontent.com/18379191/69345632-537cab00-0c69-11ea-99c7-3d1e0c5ceeec.jpg)
-  <br>
-  React Cheat Sheet
-  <br>
-</h1>
+# ![og-learning-path-react](https://user-images.githubusercontent.com/18379191/69346423-a0ad4c80-0c6a-11ea-8798-0fbc4db53d2a.jpg)
+
+<h1 align="center"> React Cheat Sheet ⚛️</h1>
+
+This is intended as a reference for the fundamental features of React and Redux written up by a mere backend developer (:rocket: ....ruby....) . Learnt via the Udemy courses [here](https://www.udemy.com/course/react-redux/) and [here](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)
 
 ## :book: Table of contents
 
