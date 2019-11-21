@@ -687,7 +687,7 @@ export default Component;
 
 2. Using a Consumer
 
-```javacript
+```javascript
 import React from 'react';
 import MyContext from '../contexts/MyContext';
 
