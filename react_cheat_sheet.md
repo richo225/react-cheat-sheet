@@ -618,7 +618,7 @@ export default Modal;
 
 ## Context
 
-You can pass data from a parent to a deeply nested child component via a context object. You can send and receive this data each via 2 ways:
+You can pass data from a parent to a deeply nested child component via a context object. This acts as a data pipe and you can send and receive the data each via 2 ways:
 
 #### Sending data
 
