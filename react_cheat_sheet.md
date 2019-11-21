@@ -615,3 +615,98 @@ export default Modal;
 ```
 
 ![Screenshot 2019-11-14 at 22 25 16](https://user-images.githubusercontent.com/18379191/68901347-ad431980-072d-11ea-867a-f63c8f4a58e0.png)
+
+## Context
+
+You can pass data from a parent to a deeply nested child component via a context object. You can send and receive this data each via 2 ways:
+
+#### Sending data
+
+1. Setting a default value
+
+```javascript
+// src/contexts/MyContext.js
+
+import React from 'react';
+
+export default React.createContext(default_value);
+```
+
+2. Using a Provider
+
+```javascript
+import React from 'react';
+import MyContext from '../contexts/MyContext';
+
+class App extends React.Component {
+  state = { selectedLanguage: 'english' };
+
+  render () {
+    return(
+      <div className="ui container">
+        <MyContext.Provider value={this.state.selectedLanguage}>
+          <UserCreate />
+        </MyContext.Provider>
+      </div>
+    )
+  }
+}
+
+export default App;
+```
+
+#### Consuming data
+
+You must first always set the class method of `contextType` to point to your context object
+
+```javascript
+static contextType = MyContext;
+```
+
+1. Using `this.context`
+
+```javascript
+import React from 'react';
+import MyContext from '../contexts/MyContext';
+
+class Component extends React.Component {
+  static contextType = MyContext;
+
+  render () {
+    return(
+      <div className="ui field">
+        <label>{this.context}</label>
+        <input />
+      </div>
+    )
+  }
+}
+
+export default Component;
+```
+
+2. Using a Consumer
+
+```javacript
+import React from 'react';
+import MyContext from '../contexts/MyContext';
+
+class Component extends React.Component {
+  static contextType = MyContext;
+
+  render () {
+    return(
+      <div className="ui field">
+        <label>
+          <LanguageContext.Consumer>
+            {(value) => // do something with value }
+          </LanguageContext.Consumer>
+        </label>
+        <input />
+      </div>
+    )
+  }
+}
+
+export default Component;
+```
