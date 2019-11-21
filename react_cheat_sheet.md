@@ -685,7 +685,7 @@ class Component extends React.Component {
 export default Component;
 ```
 
-2. Using a Consumer
+2. Use a Consumer when you need data from multiple context objects inside a single component
 
 ```javascript
 import React from 'react';
