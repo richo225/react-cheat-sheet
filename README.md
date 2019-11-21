@@ -14,7 +14,7 @@
 - [State](#state)
 - [Lifecycle methods](#lifecycle-methods)
 - [Event handlers](#event-handlers)
-  * [onChange - onClick](#onchange&onclick)
+  * [onChange - onClick](#onchange--onclick)
   * [onSubmit](#onsubmit)
   * [Form example](#form-example)
 - [Children to Parent callbacks](#children-to-parent-callbacks)
@@ -157,7 +157,7 @@ componentDidUnMount(){}     # not used that often
 
 ## Event handlers
 
-#### onChange & onClick
+#### onChange - onClick
 
 ```javascript
 class App extends React.Component {
