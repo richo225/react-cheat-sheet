@@ -1,4 +1,40 @@
 # react-cheat-sheet
+
+## Table of contents
+
+<!-- toc -->
+
+- [File setup](#file-setup)
+- [Semantic UI](#semantic-ui)
+- [Components](#components)
+  * [Functional components](#functional)
+  * [Class based components](#class)
+- [Props](#props)
+- [Children](#children)
+- [State](#state)
+- [Lifecycle methods](#lifecycle-methods)
+- [Event handlers](#event-handlers)
+  * [onChange - onClick](#onchange&onclick)
+  * [onSubmit](#onsubmit)
+  * [Form example](#form-example)
+- [Children to Parent callbacks](#children-to-parent-callbacks)
+- [Asynchronous requests](#asynchronous-requests)
+  * [await](#await)
+  * [Custom client](#custom-client)
+- [Redux cycle](#redux-cycle)
+- [React-redux](#react-redux)
+  * [Combining reducers](#combining-reducers)
+  * [Provider](#provider)
+  * [Connector](#connector)
+  * [Redux Thunk](#redux-thunk)
+- [React router](#react-router)
+- [Authorization](#authorization)
+- [Redux form](#redux-form)
+- [Portals](#portals)
+- [Context](#context)
+  * [Sending data](#sending-data)
+  * [Consuming data](#consuming-data)
+
 ## File setup
 
 ```javascript
@@ -121,7 +157,7 @@ componentDidUnMount(){}     # not used that often
 
 ## Event handlers
 
-#### onChange - onClick
+#### onChange & onClick
 
 ```javascript
 class App extends React.Component {
