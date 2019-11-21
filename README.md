@@ -1,6 +1,11 @@
-# react-cheat-sheet
+<h1 align="center">
+  ![header](https://user-images.githubusercontent.com/18379191/69345632-537cab00-0c69-11ea-99c7-3d1e0c5ceeec.jpg)
+  <br>
+  React Cheat Sheet
+  <br>
+</h1>
 
-## Table of contents
+## :book: Table of contents
 
 <!-- toc -->
 
