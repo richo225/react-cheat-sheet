@@ -31,6 +31,7 @@ This is intended as a reference for the fundamental features of React and Redux 
   * [Provider](#provider)
   * [Connector](#connector)
   * [Redux Thunk](#redux-thunk)
+  * [Redux Devtools](#redux-devtools)
 - [React router](#react-router)
 - [Authorization](#authorization)
 - [Redux form](#redux-form)
@@ -473,6 +474,29 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 )
+```
+
+### Redux Devtools
+
+```javascript
+import { createStore, comose, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import App from './components/App';
+import reducers from './reducers';
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
+  reducers,
+  composeEnhancers(applyMiddleware(thunk))
+);
+
+ReactDOM.render(
+  <Provider store={store} >
+    <App />
+  </ Provider>,
+  document.getElementById('root')
+);
 ```
 
 ## React router
