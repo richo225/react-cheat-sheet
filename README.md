@@ -479,8 +479,9 @@ ReactDOM.render(
 ### Redux Devtools
 
 ```javascript
-import { createStore, comose, applyMiddleware } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 import App from './components/App';
 import reducers from './reducers';
 
